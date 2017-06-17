@@ -18,6 +18,7 @@ where m.id=im.menu_id and im.ingredient_id in
 
 $res = pg_query($con, $query) or die("Cannot execute query: $query\n");
 
+echo "Recommended menu : ";
 while ($ro = pg_fetch_object($res)) {
     echo $ro->id . " ";
     echo $ro->name . " ";
