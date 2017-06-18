@@ -16,16 +16,24 @@ where m.id=im.menu_id and im.ingredient_id in
 ( select id from ingredient where ingredient_path ~ '".$q.".*' order by ingredient_path )
 "; 
 
-$res = pg_query($con, $query) or die("Cannot execute query: $query\n");
+$alternate_query = "
+select distinct m.* 
+from menu m
+";
 
-echo "Recommended menu : ";
+if($q === "-"){
+	$res = pg_query($con, $alternate_query) or die("Cannot execute query: $query\n");
+} else {
+	$res = pg_query($con, $query) or die("Cannot execute query: $query\n");
+}
+
+echo "Recommended menu : <br>";
 while ($ro = pg_fetch_object($res)) {
-    echo $ro->id . " ";
-    echo $ro->name . " ";
+    //echo $ro->id . " ";
+    echo $ro->name . " <br>";
     //echo $ro->description . " ";
     //echo $ro->image . " ";
 }
-
 
 pg_close($con);
 

@@ -1,19 +1,21 @@
 <html>
 <head>
-<script src='web.js'> </script>
+	<script src='web.js'> </script>
+	<script src='https://code.jquery.com/jquery-1.9.1.min.js'> </script>
 </head>
+
 <body>
+	<form>
+		<select name="ingredients" onchange="showMenu(this.value)">
+		  <option value="">I'm allergic to:</option>
+		  <option value="-">Nothing</option>
+		  <option value="002">Meat</option>
+		  <option value="001">Veggie</option>
+		</select>
+	</form>
 
-<form>
-<select name="ingredients" onchange="showMenu(this.value)">
-  <option value="">I'm allergic to:</option>
-  <option value="002">Meat</option>
-  <option value="001">Veggie</option>
-  </select>
-</form>
-<br>
+	<br>
 
-<div id="txtHint"></div>
-
+	<div id="txtHint"></div>
 </body>
 </html>

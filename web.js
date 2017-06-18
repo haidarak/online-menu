@@ -1,6 +1,6 @@
 function showMenu(str) {
     if (str == "") {
-        document.getElementById("txtHint").innerHTML = "";
+        //document.getElementById("txtHint").innerHTML = "";
         return;
     } else { 
         if (window.XMLHttpRequest) {
@@ -19,3 +19,5 @@ function showMenu(str) {
         xmlhttp.send();
     }
 }
+
+
